@@ -137,7 +137,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
-
+        z-index: 2;
         transform: translate(-50%, -50%);
       }
 
@@ -192,72 +192,6 @@
   <body>
     <div class="modal"></div>
 
-    <div class="center-card">
-      <form class="login-card" action="/user/home" method="post" id="logIn">
-        <h1>Add Patient !</h1>
-
-        <div class="form-data-container">
-          <label for="name">Name</label
-          ><input
-            class="form-input"
-            name="name"
-            id="email"
-            type="text"
-            placeholder="Name"
-            required
-          />
-        </div>
-        <div class="form-data-container">
-          <label for="email">Email</label
-          ><input
-            class="form-input"
-            name="email"
-            id="email"
-            type="email"
-            placeholder="Email"
-            required
-          />
-        </div>
-        <div class="form-data-container">
-          <label for="phoneNumber">Phone</label
-          ><input
-            class="form-input"
-            name="phoneNumber"
-            id="phoneNumber"
-            type="number"
-            placeholder="01234"
-            required
-          />
-        </div>
-        <div class="form-data-container">
-          <label for="age">Age</label
-          ><input
-            class="form-input"
-            name="age"
-            id="age"
-            type="number"
-            placeholder="11"
-            required
-          />
-        </div>
-        <div class="form-data-container">
-          <label for="sex">Sex</label
-          ><input
-            class="form-input"
-            name="sex"
-            id="sex"
-            type="text"
-            placeholder="Male"
-            required
-          />
-        </div>
-
-        <input type="submit" form="logIn" value="Sign In" class="submit-btn" />
-        <p class="create-p">Don't have an account</p>
-        <a href="http://localhost:8000/signup" class="create-page">Sign Up</a>
-      </form>
-    </div>
-
     <header>
       <div>
         <h3>
@@ -308,8 +242,8 @@
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </p>
-            <a href="#" class="btn btn-dark">Add Patient</a>
-            <a href="#" class="btn btn-dark">Home</a>
+            <a href="/addd" class="btn btn-dark">Add Patient</a>
+            <a href="/" class="btn btn-dark">Home</a>
           </div>
         </div>
       </div>
