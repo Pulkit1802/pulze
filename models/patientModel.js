@@ -40,16 +40,19 @@ const patientSchema = mongoose.Schema({
         required: [true, 'Doctor name is required'],
     },
 
-    ca: Number,
-    cp: String,
+    modelAge: Number,
+    ca1: Number,
+    ca2: Number,
+    ca3: Number,
+    trtbps: Number,
+    thalachh: Number,
+    oldpeak: Number,
     restecg: String,
     exng: String,
     slp: String,
     caa: String,
     thall: String,
-    trtbps: Number,
-    thalachh: Number,
-    oldpeak: Number,
+    cp: String,
 
 });
 

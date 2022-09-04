@@ -22,8 +22,16 @@ module.exports.getUserHome = async (req, res) => {
 
 module.exports.getPatient = async (req, res) => {
 
-    const patient = await PATIENT.findById(req.params.id);
+    let patient = await PATIENT.findById(req.params.id);
+    let ctsVals = ["modelAge", "trtbps", "oldpeak", "thalachh"];
+    let fixedVals = ["ca1", "ca2", "ca3", "restecg", "exng", "slp", "thall", "cp", "caa"];
 
+    ctsVals.forEach(val => patient[val] = Math.random());
+    fixedVals.forEach(val => patient[val] = Math.floor(Math.random()*2));
+
+    patient = await PATIENT.findByIdAndUpdate(patient.id, patient)
+
+    const value = Math.floor(Math.random()*2)
     res.render('pages/patient.ejs', {
         patient: patient
     });
