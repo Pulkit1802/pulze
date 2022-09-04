@@ -1,30 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%- include('../partials/head.ejs') %>
-    <link href="../css/registeration.css" rel="stylesheet" type="text/css">
+    <link href="../css/registeration.css" rel="stylesheet" type="text/css" />
     <title>Document</title>
-</head>
-<body>
-<header>
+  </head>
+  <body>
+    <header>
+      <div class="center-card">
+        <form class="login-card" action="/login" method="post" id="logIn">
+          <h1>Welcome Back !</h1>
 
-        <div class="center-card">
-            <form class="login-card" action="/login" method="post" id="logIn">
-                <h1>Welcome Back !</h1>
-
-                <div class="form-data-container">
-                    <label for="email"></label><input class="form-input" name="email" id="email" type="email" placeholder="Email" required>
-                </div>
-                <div class="form-data-container">
-                    <label for="password"></label><input class="form-input" name="password" id="password" type="password" placeholder="Password" required>
-                </div>
-                <input type="submit" form="logIn" value="Sign In" class="submit-btn">
-                <p class="create-p">Don't have an account</p>
-                <a href="http://localhost:8000/signup" class="create-page">Sign Up</a>
-            </form>
-        </div>
-
-</header>
-
-</body>
+          <div class="form-data-container">
+            <label for="email"></label
+            ><input
+              class="form-input"
+              name="email"
+              id="email"
+              type="email"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div class="form-data-container">
+            <label for="password"></label
+            ><input
+              class="form-input"
+              name="password"
+              id="password"
+              type="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <input
+            type="submit"
+            form="logIn"
+            value="Sign In"
+            class="submit-btn"
+          />
+          <p class="create-p">Don't have an account</p>
+          <a href="/signup" class="create-page">Sign Up</a>
+        </form>
+      </div>
+    </header>
+  </body>
 </html>

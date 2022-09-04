@@ -18,7 +18,7 @@ module.exports.registerUser = async (req, res) => {
     newUser.password = await password.hash(newUser.password);
     await USER.create(newUser);
 
-    res.redirect("/home");
+    res.redirect("/");
   } catch (err) {
     res.status(404).json({
       status: "fail",
@@ -57,5 +57,5 @@ module.exports.loginUser = async (req, res) => {
 module.exports.logout = (req, res) => {
   req.session.loggedin = false;
   req.session.username = null;
-  res.redirect("/home");
+  res.redirect("/");
 };
