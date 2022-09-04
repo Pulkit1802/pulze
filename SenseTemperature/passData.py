@@ -7,7 +7,7 @@ arduinoData = serial.Serial('com5',115200)
 time.sleep(1)
 cluster = MongoClient("mongodb+srv://ds-hack:XrjoFN3Clc7e4i34@dshack.gk1jil8.mongodb.net/dsHack",connect=False)
 db = cluster["dsHack"]
-collection = db["patiendatas"]
+collection = db["patientdatas"]
 
 while True:
     while(arduinoData.inWaiting()==0):
