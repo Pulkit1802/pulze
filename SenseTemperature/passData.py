@@ -15,6 +15,5 @@ while True:
     #Ready to read 
     dataPacket = arduinoData.readline()
     dataPacket = str(dataPacket,'utf-8')
-    print(dataPacket)
     time.sleep(5)
     collection.find_one_and_update({'name':'sara'},{'$set':{'age':dataPacket}})
