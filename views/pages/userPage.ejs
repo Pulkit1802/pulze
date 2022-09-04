@@ -1,178 +1,197 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%- include('../partials/head.ejs') %>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      img {
+        border-radius: 50% !important;
+      }
+      body {
+        color: #203a43;
+        background-image: url("https://res.cloudinary.com/ren-camp/image/upload/v1662265509/cool-background_2_a7ci7c.png");
+        background-size: 100% auto;
+        min-height: 100vh;
+      }
 
-        body {
-            color: #203A43;
-            background-image: linear-gradient(-135deg, #d7dde8, #757f9a);
-            min-height: 100vh;
-        }
+      header {
+        padding: 0.1rem 8rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #0f2027;
+      }
 
-        header {
-            padding: 1rem 8rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #0F2027;
-        }
+      h2 {
+        margin-bottom: 2rem;
+      }
 
-        h2 {
-            margin-bottom: 2rem;
-        }
+      a {
+        text-decoration: none;
+      }
 
-        a {
-            text-decoration: none;
-        }
+      .patient-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 0.7rem 2rem;
+        border: 1px solid #e8f9fd;
+        margin-bottom: 1.2rem;
+        border-radius: 10px;
+        background-color: #e8f9fd;
+      }
 
-        .patient-card {
-            position: relative;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            padding: 0.7rem 2rem;
-            border: 1px solid #E8F9FD;
-            margin-bottom: 1.2rem;
-            border-radius: 10px;
-            background-color: #E8F9FD;
-        }
+      .patient-data {
+        padding: 0.3rem 0;
+        border-right: 2px solid #203a43;
+        text-align: center;
+        text-transform: capitalize;
+      }
 
-        .patient-data {
-            padding: 0.3rem 0;
-            border-right: 2px solid #203A43;
-            text-align: center;
-            text-transform: capitalize;
-        }
+      .patient-dashboard:link,
+      .patient-dashboard:visited {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        top: 0;
+        right: 0;
+        height: 100%;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+        padding: 0 1rem;
+        color: #203a43;
+        background-color: #f9f9f9;
+        transition: all 0.4s;
+      }
 
-        .patient-dashboard:link,
-        .patient-dashboard:visited {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            top: 0;
-            right: 0;
-            height: 100%;
-            border-bottom-right-radius: 10px;
-            border-top-right-radius: 10px;
-            padding: 0 1rem;
-            color: #203A43;
-            background-color: #F9F9F9;
-            transition: all 0.4s;
-        }
+      .patient-dashboard:hover,
+      .patient-dashboard:active {
+        color: #0f2027;
+        background-color: #d7dde8;
+      }
 
-        .patient-dashboard:hover,
-        .patient-dashboard:active {
-            color: #0F2027;
-            background-color: #d7dde8;
-        }
+      .pulzes-link:link,
+      .pulzes:visited,
+      .pulzes:hover,
+      .pulzes:active {
+        text-decoration: none;
+        color: #2dc1e4;
+      }
 
-        .pulzes-link:link, .pulzes:visited, .pulzes:hover, .pulzes:active {
-            text-decoration: none;
-            color: #2dc1e4;
-        }
+      .pulzes {
+        position: relative;
+        font-size: 2.4rem;
+        text-transform: lowercase;
+        color: #2dc1e4;
+      }
 
-        .pulzes {
-            position: relative;
-            font-size: 2.4rem;
-            text-transform: lowercase;
-            color: #2dc1e4;
-        }
+      .pulzes::before {
+        content: "";
+        width: 2rem;
+        border-bottom: 3px solid #ff0a45;
+        position: absolute;
+        top: 55%;
+        left: 0;
+        transform: translate(-120%);
+      }
 
-        .pulzes::before {
-            content: "";
-            width: 2rem;
-            border-bottom: 3px solid #ff0a45;
-            position: absolute;
-            top: 55%;
-            left: 0;
-            transform: translate(-120%);
-        }
+      .pulzes::after {
+        content: "";
+        width: 2rem;
+        border-bottom: 3px solid #ff0a45;
+        position: absolute;
+        top: 55%;
+        right: 0;
+        transform: translate(120%);
+      }
 
-        .pulzes::after {
-            content: "";
-            width: 2rem;
-            border-bottom: 3px solid #ff0a45;
-            position: absolute;
-            top: 55%;
-            right: 0;
-            transform: translate(120%);
-        }
+      .pulzes > div {
+        color: #ff0a45;
+        font-size: 2.8rem;
+        display: inline-block;
+        text-transform: uppercase;
+        transform: rotate(-55deg);
+        margin: 0 0.5rem;
+      }
 
-        .pulzes>div {
-            color: #ff0a45;
-            font-size: 2.8rem;
-            display: inline-block;
-            text-transform: uppercase;
-            transform: rotate(-55deg);
-            margin: 0 0.5rem;
-        }
+      .nav-link:link,
+      .nav-link:visited {
+        padding: 0.25rem 0.7rem;
+        color: #d7dde8;
+        border-bottom: 1px transparent;
+        font-size: larger;
+        transition: all 0.4s;
+      }
 
-        .nav-link:link,
-        .nav-link:visited {
-            padding: 0.25rem 0.7rem;
-            color: #d7dde8;
-            border-bottom: 1px transparent;
-            font-size: larger;
-            transition: all 0.4s;
-        }
-
-        .nav-link:hover,
-        .nav-link:active {
-            color: #a8adb6;
-            border-bottom: 1px solid #a8adb6;
-        }
-
+      .nav-link:hover,
+      .nav-link:active {
+        color: #a8adb6;
+        border-bottom: 1px solid #a8adb6;
+      }
     </style>
-<!--    <script src="https://kit.fontawesome.com/d7ca7be8cc.js" crossorigin="anonymous"></script>-->
+    <!--    <script src="https://kit.fontawesome.com/d7ca7be8cc.js" crossorigin="anonymous"></script>-->
     <title>Document</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <header>
-        <div>
-            <h3><a href="http://localhost:8000/home" class="pulzes pulzes-link">Pul<div>Z</div>es</a></h3>
-        </div>
-        <a class="nav-link signIn" href="http://localhost:8000/logout">Sign Out</a>
+      <div>
+        <h3>
+          <a href="http://localhost:8000/home" class="pulzes pulzes-link"
+            >Pul
+            <div>Z</div>
+            es</a
+          >
+        </h3>
+      </div>
+      <a class="nav-link signIn" href="http://localhost:8000/logout"
+        >Sign Out</a
+      >
     </header>
 
     <div class="m-5 row">
-
-        <div class="col-9">
-            <h2>Patient List</h2>
-            <% patients.forEach((patient) => {%>
-                <div class="patient-card">
-                    <div class="patient-data">Name: <span><%= patient.name %></span></div>
-                    <div class="patient-data">Age: <span><%= patient.age %></span></div>
-                    <div class="patient-data">Sex: <span><%= patient.sex %></span></div>
-                    <div class="patient-data">PulseRate: <span><%= patient.pulseRate %></span></div>
-                    <a href="http://localhost:8000/user/dashboard/<%= patient.id %>" class="patient-dashboard"><i class="fa-solid fa-chevron-right"></i></a>
-                </div>
-            <%})%>
+      <div class="col-9">
+        <h2>Patient List</h2>
+        <% patients.forEach((patient) => {%>
+        <div class="patient-card">
+          <div class="patient-data">Name: <span><%= patient.name %></span></div>
+          <div class="patient-data">Age: <span><%= patient.age %></span></div>
+          <div class="patient-data">Sex: <span><%= patient.sex %></span></div>
+          <div class="patient-data">
+            PulseRate: <span><%= patient.pulseRate %></span>
+          </div>
+          <a
+            href="http://localhost:8000/user/dashboard/<%= patient.id %>"
+            class="patient-dashboard"
+            ><i class="fa-solid fa-chevron-right"></i
+          ></a>
         </div>
+        <%})%>
+      </div>
 
-        <div class="col-3">
-            <div class="m-3 card" style="width: 18rem; top: 4rem;">
-                <img
-                        src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                        class="card-img-top"
-                        alt="..."
-                />
-                <div class="card-body" style="text-align: center">
-                    <h5 class="card-title" style="text-transform: capitalize">Welcome Dr : <%=user.name%></h5>
-                    <p class="card-text">
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                    </p>
-                    <a href="#" class="btn btn-dark">Add Patient</a>
-                    <a href="#" class="btn btn-dark">Home</a>
-                </div>
-            </div>
+      <div class="col-3">
+        <div class="m-3" style="width: 18rem; top: 4rem">
+          <img
+            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body" style="text-align: center">
+            <h5 class="card-title" style="text-transform: capitalize">
+              Welcome Dr : <%=user.name%>
+            </h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <href="#" class="btn btn-dark">Add Patient</a>
+            <a href="#" class="btn btn-dark">Home</a>
+          </div>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

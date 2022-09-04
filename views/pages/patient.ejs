@@ -1,82 +1,90 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%- include('../partials/head.ejs') %>
     <title>Document</title>
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body{
-            text-align: center;
-            color: #d7dde8;
-            text-transform: capitalize;
-            background: url("../images/login.jpg");
-            min-height: 100vh;
-            position: relative;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        text-align: center;
+        color: #d7dde8;
+        text-transform: capitalize;
+        background: url("https://res.cloudinary.com/ren-camp/image/upload/v1662265181/cool-background_rqlsrq.png");
+        background-size: 100% auto;
+        min-height: 100vh;
+        position: relative;
+      }
+      img {
+        width: 30%;
+      }
+      .detail-container {
+        position: absolute;
+        border: 1px solid #0f2027;
+        padding: 2rem 4rem;
+        top: 50%;
+        left: 50%;
+        width: 60%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
 
-        .detail-container {
-            position: absolute;
-            background-color: #0F2027;
-            border: 1px solid #0F2027;
-            padding: 2rem 4rem;
-            border-radius: 15px;
-            top: 50%;
-            left: 50%;
-            width: 60%;
-            transform: translate(-50%, -50%);
-        }
+      .monitor-info {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+      }
 
-        .monitor-info {
-            display: grid;
-            gap: 2rem;
-            grid-template-columns: repeat(2, 1fr);
-        }
+      .status {
+        display: flex;
+        border: 1px solid;
+        align-items: center;
+        padding: 0.3rem 0.6rem;
+        border-radius: 7px;
+        font-size: 2.4rem;
+      }
 
-        .status {
-            display: flex;
-            border: 1px solid ;
-            align-items: center;
-            padding: 0.3rem 0.6rem;
-            border-radius: 7px;
-            font-size: 2.4rem;
-        }
+      .status i {
+        margin-right: 2.2rem;
+      }
 
-        .status i {margin-right: 2.2rem}
-
-        .heart i {
-
-            color: #ff0a45;
-        }
-
+      .heart i {
+        color: #ff0a45;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <h1>Dashboard of Patient: <%=patient.name%></h1>
 
-    <div class="detail-container">
-        <div class="normal-info">
-
-        </div>
-        <div class="monitor-info">
+    <div class="row">
+      <div class="col-9">
+        <div class="detail-container">
+          <div class="normal-info"></div>
+          <div class="monitor-info">
             <div class="status heart">
-                <i class="fa-solid fa-heart-pulse"></i> <%= patient.pulseRate %> rpm
+              <i class="fa-solid fa-heart-pulse"></i> <%= patient.pulseRate %>
+              rpm
             </div>
             <div class="status">
-                <i class="fa-solid fa-heart-pulse"></i> <%= patient.pulseRate %>
+              <i class="fa-solid fa-heart-pulse"></i> <%= patient.pulseRate %>
             </div>
             <div class="status">
-                <i class="fa-solid fa-heart-pulse"></i> <%= patient.pulseRate %>
+              <i class="fa-solid fa-heart-pulse"></i> <%= patient.pulseRate %>
             </div>
             <div class="status">
-                <i class="fa-solid fa-heart-pulse"></i> <%= patient.pulseRate %>
+              <i class="fa-solid fa-heart-pulse"></i> <%= patient.pulseRate %>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-
-</body>
+  </body>
 </html>
