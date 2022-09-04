@@ -132,11 +132,86 @@
         color: #a8adb6;
         border-bottom: 1px solid #a8adb6;
       }
+
+      .center-card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+      }
+
+      .login-card {
+        position: relative;
+        text-align: center;
+        padding: 8rem 2rem;
+        border-radius: 15px;
+      }
+
+      .login-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 30px 40px rgba(0, 0, 0, 0.5);
+        white-space: nowrap;
+        backdrop-filter: blur(2px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .create-p {
+        margin-top: 2rem;
+      }
+      .create-page:link,
+      .create-page:visited {
+        text-decoration: none;
+        color: #203A43;
+        padding: 0.2rem 0.8rem;
+        border-bottom: 1px transparent;
+        transition: all 0.4s;
+      }
+
+      .create-page:hover,
+      .create-page:active {
+        color: #0F2027;
+        border-bottom: 1px #0F2027 solid;
+      }
+
+      .login-card form {
+        padding: 0;
+        background: transparent;
+        margin: 0;
+      }
+
     </style>
     <!--    <script src="https://kit.fontawesome.com/d7ca7be8cc.js" crossorigin="anonymous"></script>-->
     <title>Document</title>
   </head>
   <body>
+
+    <div class="modal">
+
+    </div>
+
+    <div class="center-card">
+      <form class="login-card" action="/user/home" method="post" id="logIn">
+        <h1>Add Patient !</h1>
+
+        <div class="form-data-container">
+          <label for="name"></label><input class="form-input" name="name" id="email" type="text" placeholder="Name" required>
+        </div>
+        <div class="form-data-container">
+          <label for="email"></label><input class="form-input" name="email" id="email" type="email" placeholder="Email" required>
+        </div>
+        <input type="submit" form="logIn" value="Sign In" class="submit-btn">
+        <p class="create-p">Don't have an account</p>
+        <a href="http://localhost:8000/signup" class="create-page">Sign Up</a>
+      </form>
+    </div>
+
     <header>
       <div>
         <h3>
@@ -187,7 +262,7 @@
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </p>
-            <href="#" class="btn btn-dark">Add Patient</a>
+            <a href="#" class="btn btn-dark">Add Patient</a>
             <a href="#" class="btn btn-dark">Home</a>
           </div>
         </div>
