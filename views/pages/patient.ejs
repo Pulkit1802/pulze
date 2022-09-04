@@ -68,20 +68,36 @@
     <div class="row">
       <div class="col-9">
         <div class="detail-container">
-          <div class="normal-info"></div>
+          <div class="normal-info">
+            <div class="row mb-3">
+              <div class="col">
+                <div class="lead">Name: <%= patient.name %></div>
+
+                <div class="lead">Age: <%= patient.age %></div>
+                <div class="lead">Sex: <%= patient.sex %></div>
+              </div>
+              <div class="col">
+                <div class="lead">Email: <%= patient.email %></div>
+                <div class="lead">Phone: <%= patient.phoneNumber %></div>
+              </div>
+            </div>
+          </div>
           <div class="monitor-info">
             <div class="status heart">
               <i class="fa-solid fa-heart-pulse"></i> <%= patient.pulseRate %>
               rpm
             </div>
             <div class="status">
-              <i class="fa-solid fa-heart-pulse"></i> <%= patient.pulseRate %>
+              <i class="fa-solid fa-temperature-three-quarters"></i> <%=
+              patient.temp %>
             </div>
             <div class="status">
-              <i class="fa-solid fa-heart-pulse"></i> <%= patient.pulseRate %>
+              <i class="fa-solid fa-star-of-life"></i><%= patient.healthStatus
+              %>
             </div>
             <div class="status">
-              <i class="fa-solid fa-heart-pulse"></i> <%= patient.pulseRate %>
+              <i class="fa-solid fa-mask-ventilator"></i><%= patient.pulseRate
+              %>
             </div>
           </div>
         </div>
